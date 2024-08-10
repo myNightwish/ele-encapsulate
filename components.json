@@ -1,0 +1,4 @@
+{
+  "CityPicker": "./components/CityPicker/index.js",
+  "MiForm": "./components/MiForm/index.js"
+}

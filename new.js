@@ -1,5 +1,3 @@
-'use strict';
-
 // 注册退出事件：输出空行
 process.on('exit', () => {
   console.log();
@@ -10,12 +8,6 @@ if (!process.argv[2]) {
   console.error('[组件名]必填 - Please enter new component name');
   process.exit(1);
 }
-// 更新 components.json
-const componentsFile = require('./components.json');
-if (componentsFile[componentname]) {
-  console.error(`${componentname} 已存在.`);
-  process.exit(1);
-}
 
 const path = require('path');
 const fileSave = require('file-save');
@@ -24,49 +16,43 @@ const uppercamelcase = require('uppercamelcase');
 const componentname = process.argv[2];
 // 获取组件名（英文），并转换组件名为大驼峰命名法
 const ComponentName = uppercamelcase(componentname);
-const PackagePath = path.resolve(__dirname, '/components', componentname);
+const PackagePath = path.resolve(__dirname, './src/components', componentname);
 const chineseName = process.argv[3] || componentname;
 
+// 更新 components.json
+const componentsFile = require('./components.json');
+// import componentsFile from './components.json'
+if (componentsFile[componentname]) {
+  console.error(`${componentname} 已存在.`);
+  process.exit(1);
+}
 // 定义需要创建的文件及其内容
 const Files = [
   {
     filename: 'index.js',
     content: `import ${ComponentName} from './src/index.vue';
-      ${ComponentName}.install = function(app) {
-        app.component('${ComponentName}', ${ComponentName})
-      } 
-    export default Tab;`
+${ComponentName}.install = function(app) {
+  app.component('${ComponentName}', ${ComponentName})
+};
+export default ${ComponentName};`
   },
   {
     filename: './src/index.vue',
-
     content: `<template>
-      <div class="${ComponentName}-wrapper"></div>
-    </template>
+  <div class="${ComponentName}-wrapper"></div>
+</template>
 
-    <script setup>
-    import { defineComponent } from 'vue';
-    defineComponent({
-      name: '${ComponentName}',
-    })
-    </script>`
-  },
-  {
-    filename: path.join('../../examples/docs/zh-CN', `${componentname}.md`),
-    content: `## ${ComponentName} ${chineseName}`
-  },
-  {
-    filename: path.join('../../packages/theme-chalk/src', `${componentname}.scss`),
-    content: `@import "mixins/mixins";
-@import "common/var";
-
-@include b(${componentname}) {
-}`
+<script setup>
+import { defineComponent } from 'vue';
+defineComponent({
+  name: '${ComponentName}',
+})
+</script>`
   }
 ];
 
 componentsFile[componentname] = `./components/${componentname}/index.js`;
-fileSave(path.join(__dirname, '../../components.json'))
+fileSave(path.join(__dirname, './components.json'))
   .write(JSON.stringify(componentsFile, null, '  '), 'utf8')
   .end('\n');
 
