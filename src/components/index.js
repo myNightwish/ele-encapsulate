@@ -5,6 +5,7 @@ import Menu from './Menu/index.js';
 import Progress from './Progress/index.js';
 import CityPicker from './CityPicker/index.js';
 import MiForm from './MiForm/index.js';
+import ModalForm from './ModalForm/index.js';
 
 const components = [
   City,
@@ -13,7 +14,8 @@ const components = [
   Menu,
   Progress,
   CityPicker,
-  MiForm
+  MiForm,
+  ModalForm
 ]
 const install = function (app) {
   components.map((item) => {

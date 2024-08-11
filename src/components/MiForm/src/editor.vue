@@ -1,13 +1,13 @@
 <template>
-    <div style="border: 1px solid #ccc">
+    <div style="border: 1px solid #ccc;">
       <Toolbar
-        style="border-bottom: 1px solid #ccc"
+        style="border-bottom: 1px solid #ccc; height: 100px; overflow-y: hidden;"
         :editor="editorRef"
         :defaultConfig="toolbarConfig"
         :mode="mode"
       />
       <Editor
-        style="height: 500px; overflow-y: hidden;"
+        style="height: 200px; overflow-y: hidden;"
         v-model="valueHtml"
         :defaultConfig="editorConfig"
         :mode="mode"
@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref, onBeforeUnmount,
-  shallowRef, defineProps, defineEmits
+  shallowRef, defineEmits
 } from 'vue';
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css

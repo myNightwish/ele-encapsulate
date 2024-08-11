@@ -18,13 +18,12 @@ devp:
 new:
 	node new.js $(COMPONENT)
 
-buildfile: new
-	npm run build:file
+# buildfile: new
+# 	node build-entry.js
+buildEntry:
+	node build-entry.js
 
-buildTheme: buildfile
-	npm run build:theme
-
-init: buildTheme
+init: buildfile
 	@echo '组件初始化已完成...🎉'
 
 help:

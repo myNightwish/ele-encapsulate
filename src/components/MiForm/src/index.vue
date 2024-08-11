@@ -70,7 +70,7 @@
 
 <script lang="ts" setup>
 import {
-  defineComponent, PropType, defineProps, ref, 
+  defineComponent, PropType, ref, 
   onMounted, watch, defineEmits, defineExpose,
   nextTick
 } from 'vue';
@@ -176,8 +176,20 @@ const selfResetFilds = () => {
     editorCopyHtml.value = '';
   })
 }
+// 验证方法
+const validate = () => {
+  return form.value?.validate;
+}
+
+// 分发 modal 数据，不能直接通过 define 的方式直接，而是包成函数,分发方法
+// 直接 defineExpose model.value; 会导致获取的原始数据
+const getFormData = () => {
+  return model.value;
+}
 // 分发出去
 defineExpose({
-  selfResetFilds
+  selfResetFilds,
+  validate,
+  getFormData
 })
 </script>

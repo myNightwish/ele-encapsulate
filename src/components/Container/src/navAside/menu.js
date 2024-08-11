@@ -40,8 +40,8 @@ export const asideMenu = [
     index: '/form'
   },
   {
-    name: '日历',
+    name: '弹窗表单',
     icon: 'calendar',
-    index: '/calendar'
+    index: '/ modalform'
   }
 ];
