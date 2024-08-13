@@ -43,6 +43,10 @@ const routes = [
       {
         path: '/modalform',
         component: () => import('../views/modalformDemo.vue'),
+      },
+      {
+        path: '/table',
+        component: () => import('../views/tableDemo.vue'),
       }
     ]
   }

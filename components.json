@@ -1,5 +1,6 @@
 {
   "CityPicker": "./components/CityPicker/index.js",
   "MiForm": "./components/MiForm/index.js",
-  "ModalForm": "./components/ModalForm/index.js"
+  "ModalForm": "./components/ModalForm/index.js",
+  "MiTable": "./components/MiTable/index.js"
 }

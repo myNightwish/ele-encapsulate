@@ -42,6 +42,6 @@ export const asideMenu = [
   {
     name: '弹窗表单',
     icon: 'calendar',
-    index: '/ modalform'
+    index: '/modalform'
   }
 ];

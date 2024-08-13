@@ -2,7 +2,7 @@
   <div>
     <MiForm
       ref="form"
-      :options="options"
+      :options="formOptions"
       label-width="100px" 
       @handlePreview="handlePreview"
       @handleRemove="handleRemove"
@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { defineComponent, ref} from 'vue';
-import {options} from './formOptions.ts';
+import {formOptions} from './formOptions.ts';
 
 defineComponent({
   name: 'FormDemo'

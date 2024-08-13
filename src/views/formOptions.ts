@@ -1,6 +1,6 @@
 import {FormOptions} from '@/types/form.ts';
 
-export const options: FormOptions[] = [
+export const formOptions: FormOptions[] = [
   {
     type: 'input',
     value: '',
