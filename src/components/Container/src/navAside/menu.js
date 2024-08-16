@@ -5,11 +5,6 @@ export const asideMenu = [
     index: '/home'
   },
   {
-    name: '图标选择器',
-    icon: 'edit',
-    index: '/iconpicker'
-  },
-  {
     name: '城市地图',
     icon: 'location',
     index: '/city'

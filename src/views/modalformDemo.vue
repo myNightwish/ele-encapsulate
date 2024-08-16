@@ -1,7 +1,7 @@
 <template>
   <div class="ModalFormDemo">
     <!-- 注意不是 v-model=“visible” -->
-    <modal-form v-model:visible="visible" title="编辑用户" width="50%" :options="formOptions">
+    <modal-form v-model:visible="visible" title="编辑用户" width="50%" :options="formConfig">
       <!-- 插槽套插槽的方式 -->
       <template #uploadArea>
         <el-button type="primary">点击上传</el-button>
@@ -26,7 +26,7 @@
 
 <script setup>
 import { defineComponent,ref } from 'vue';
-import {formOptions} from './formOptions.ts';
+import {formConfig} from '@/config/formConfig';
 import { ElMessage } from 'element-plus'
 defineComponent({
   name: 'ModalFormDemo',

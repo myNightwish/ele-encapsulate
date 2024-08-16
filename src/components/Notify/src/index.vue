@@ -18,8 +18,7 @@
 </template>
 
 <script setup>
-import { defineComponent, useSlots } from 'vue';
-import { BellFilled, Message, User } from '@element-plus/icons'
+import {iconMap} from '@/utils/iconPicker.js';
 
 const props = defineProps({
   // 显示的图标
@@ -40,20 +39,6 @@ const props = defineProps({
     default: false
   }
 })
-
-
-defineComponent({
-  name: 'Notify',
-  components: {
-    BellFilled
-  },
-
-})
-const iconMap = {
-  'bell': BellFilled,
-  'message': Message,
-  'user': User
-}
 </script>
 
 <style lang="scss" scoped>

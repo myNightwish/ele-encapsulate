@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "genemock": "npx tsc ./data.ts && node ./data.js"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "@types/lodash": "^4.17.7",
     "@wangeditor/editor-for-vue": "^5.1.12",
+    "axios": "^1.7.4",
     "element-plus": "^2.7.8",
     "file-save": "^0.2.0",
     "json-templater": "^1.2.0",
@@ -25,6 +27,7 @@
     "@element-plus/icons": "^0.0.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "mockjs": "^1.1.0",
     "vite": "^5.3.4"
   }
 }

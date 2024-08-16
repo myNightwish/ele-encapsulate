@@ -3,7 +3,6 @@ import Notify from './Notify/index.js';
 import Tab from './Tab/index.js';
 import Menu from './Menu/index.js';
 import Progress from './Progress/index.js';
-import CityPicker from './CityPicker/index.js';
 import MiForm from './MiForm/index.js';
 import ModalForm from './ModalForm/index.js';
 import MiTable from './MiTable/index.js';
@@ -14,7 +13,6 @@ const components = [
   Tab,
   Menu,
   Progress,
-  CityPicker,
   MiForm,
   ModalForm,
   MiTable

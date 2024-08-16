@@ -1,6 +1,6 @@
 // 使用 jsx 的形式 封装无限组件
 import { defineComponent, useAttrs } from 'vue';
-import {iconMap} from '../../../utils/iconPicker.js';
+import {iconMap} from '@/utils/iconPicker.js';
 
 export default defineComponent({
   name: 'InfiniteMenu',

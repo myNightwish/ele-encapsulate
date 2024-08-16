@@ -12,10 +12,6 @@ const routes = [
         path: '/home',
         component: () => import('../views/Home.vue'),
       },
-      // {
-      //   path: '/icon',
-      //   component: () => import('../views/ChooseIcon.vue'),
-      // },
       {
         path: '/city',
         component: () => import('../views/ChooseCity.vue'),
@@ -31,10 +27,6 @@ const routes = [
       {
         path: '/progress',
         component: () => import('../views/ProgressDemo.vue'),
-      },
-      {
-        path: '/citypicker',
-        component: () => import('../views/CityPickerDemo.vue'),
       },
       {
         path: '/form',

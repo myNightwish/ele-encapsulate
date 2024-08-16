@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 import { Expand, Fold } from '@element-plus/icons';
 // 注册
 defineComponent({

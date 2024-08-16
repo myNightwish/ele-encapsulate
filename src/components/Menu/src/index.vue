@@ -37,13 +37,8 @@
 <script setup>
 // 一二级（模板或 jsx）、无限层级菜单（jsx）
 import { defineComponent } from 'vue';
-import { Setting, Location, Document } from '@element-plus/icons'
+import {iconMap} from '@/utils/iconPicker.js';
 
-const iconMap = {
-  "setting": Setting,
-  "document": Document,
-  "location": Location,
-}
 defineComponent({
   name: 'Menu',
 });

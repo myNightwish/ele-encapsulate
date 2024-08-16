@@ -5,5 +5,6 @@ export interface tableOptions {
   align?: 'left' | 'center' | 'right',
   slot?: String,
   // 是否为操作项
-  action?: Boolean
+  action?: Boolean,
+  editable?: Boolean,
 }
