@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import {iconMap} from '@/utils/iconPicker.js';
+import {iconMap} from '@/config/iconPicker.js';
 
 const props = defineProps({
   // 显示的图标

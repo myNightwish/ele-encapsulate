@@ -41,7 +41,7 @@
 
 <script setup>
 import { defineComponent } from 'vue';
-import { iconMap } from '@/utils/iconPicker.js';
+import { iconMap } from '@/config/iconPicker.js';
 
 defineComponent({
   name: 'Menu',
