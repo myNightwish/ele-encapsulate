@@ -1,10 +1,9 @@
 <template>
     <el-aside width="auto">
       <InfiniteMenu
-          :data="asideMenu"
+          :data="asideMenuConfig"
           :defaultActive="$route.path"
           :router="true"
-          :hasUniqueKey="true"
           :collapse="collapse"
           class="el-menu-vertical-demo"
        />
@@ -12,9 +11,9 @@
 </template>
 
 <script setup>
-import { asideMenu} from './menu.js';
+import { asideMenuConfig} from '@/config/asideMenuConfig';
 
-let props = defineProps({
+const props = defineProps({
   collapse: {
     type: Boolean,
     default: false

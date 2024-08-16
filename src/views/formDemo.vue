@@ -1,5 +1,4 @@
 <template>
-  <div>
     <MiForm
       ref="form"
       :options="formConfig"
@@ -27,7 +26,6 @@
         <el-button type="primary" plain @click="resetForm">取消</el-button>
       </template>
     </MiForm>
-  </div>
 </template>
 
 <script lang="ts" setup>
@@ -36,9 +34,9 @@ import {formConfig} from '@/config/formConfig';
 
 const form = ref();
 const onSubmit = (scope) => {
-  scope.form.validate(valid => {
-  })
+  scope.form.validate(valid => {})
 }
+
 const resetForm = (scope) => {
   // 单独处理的上传组件、编辑器都没有被重置，因为富文本内容并没有被还原
   form.value.selfResetFilds();

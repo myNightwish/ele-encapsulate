@@ -13,45 +13,44 @@ const path = require('path');
 const fileSave = require('file-save');
 const uppercamelcase = require('uppercamelcase');
 // 获取命令行参数：组件名
-const componentname = process.argv[2];
+const inputCompName = process.argv[2];
 // 获取组件名（英文），并转换组件名为大驼峰命名法
-const ComponentName = uppercamelcase(componentname);
-const PackagePath = path.resolve(__dirname, './src/components', componentname);
-const chineseName = process.argv[3] || componentname;
+const upperCameName = uppercamelcase(inputCompName);
+const PackagePath = path.resolve(__dirname, './src/components', upperCameName);
 
 // 更新 components.json
 const componentsFile = require('./components.json');
 // import componentsFile from './components.json'
-if (componentsFile[componentname]) {
-  console.error(`${componentname} 已存在.`);
+if (componentsFile[upperCameName]) {
+  console.error(`${upperCameName} 已存在.`);
   process.exit(1);
 }
 // 定义需要创建的文件及其内容
 const Files = [
   {
     filename: 'index.js',
-    content: `import ${ComponentName} from './src/index.vue';
-${ComponentName}.install = function(app) {
-  app.component('${ComponentName}', ${ComponentName})
+    content: `import ${upperCameName} from './src/index.vue';
+export default function(app) {
+  app.component('${upperCameName}', ${upperCameName})
 };
-export default ${ComponentName};`
+`
   },
   {
     filename: './src/index.vue',
     content: `<template>
-  <div class="${ComponentName}-wrapper"></div>
+  <div class="${inputCompName}-wrapper"></div>
 </template>
 
 <script setup>
 import { defineComponent } from 'vue';
 defineComponent({
-  name: '${ComponentName}',
+  name: '${upperCameName}',
 })
 </script>`
   }
 ];
 
-componentsFile[componentname] = `./components/${componentname}/index.js`;
+componentsFile[upperCameName] = `./components/${upperCameName}/index.js`;
 fileSave(path.join(__dirname, './components.json'))
   .write(JSON.stringify(componentsFile, null, '  '), 'utf8')
   .end('\n');

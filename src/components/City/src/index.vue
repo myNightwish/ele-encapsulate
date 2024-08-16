@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import { ref, defineComponent,reactive, computed, watch } from 'vue';
-import provinceData from '../mock/city.json';
+import { ref, defineComponent,computed, watch } from 'vue';
+import provinceData from '@/mock/city.json';
 
 const province = ref('');
 const city = ref('');
@@ -39,25 +39,15 @@ const selectedCity = computed(() => {
   return provinceData.find(item => item.code === province.value)
 })
 
-const cityOptions = computed(() => {
-  if (selectedCity.value && selectedCity.value.children) {
-    return selectedCity.value.children;
-  } else {
-    return [];
-  }
-})
+const cityOptions = computed(() => selectedCity.value?.children ?
+selectedCity.value.children : []);
 
 const selectedCityArea = computed(() => {
   return cityOptions.value.find(item => item.code === city.value)
 })
 
-const areaOptions = computed(() => {
-  if (selectedCityArea.value && selectedCityArea.value.children) {
-    return selectedCityArea.value.children;
-  } else {
-    return [];
-  }
-})
+const areaOptions = computed(() => selectedCityArea.value?.children ?
+selectedCityArea.value.children : []);
 
 watch(province, () => {
   city.value = ''
@@ -67,7 +57,7 @@ watch(province, () => {
 watch(city, () => {
   area.value = ''
 })
-watch(area, (val) => {
+watch(area, val => {
   val && emitCity();
 })
 

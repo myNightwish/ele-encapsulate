@@ -1,7 +1,5 @@
 <template>
-  <div class="progress">
     <el-progress :percentage="increment" v-bind="$attrs"></el-progress>
-  </div>
 </template>
 
 <script setup>

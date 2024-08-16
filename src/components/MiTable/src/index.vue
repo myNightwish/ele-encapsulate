@@ -33,9 +33,7 @@
             <div v-else class="edit-wrapper">
               <slot v-if="item.slot" :name="item.slot" :scope="scope"></slot>
               <span v-else>{{ scope.row[item.prop] }}</span>
-              <span v-if="item.editable" @click.stop="clickEdit(scope.column.id, scope.$index, scope)">
-                <el-icon><Edit /></el-icon>
-              </span>
+                <el-icon v-if="item.editable" @click.stop="clickEdit(scope.column.id, scope.$index, scope)"><Edit /></el-icon>
             </div>
           </template>
         </template>
@@ -218,7 +216,7 @@ const clickEdit = (col: string, idx: number, scope: any) => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .input-edit-wrapper {
   display: flex;
   align-items: center;

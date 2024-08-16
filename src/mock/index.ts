@@ -22,6 +22,6 @@ Mock.mock(/\/api\/data\/list/, 'get', (options: any) => {
     data: {
       total: mockData.length,
       items: pageData,
-    },
+    }
   };
 });

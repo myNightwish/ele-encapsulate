@@ -9,9 +9,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      'COMPONENTS': resolve(__dirname, 'src/components'),
-      // 你可以在这里添加更多别名
+      '@': resolve(__dirname, 'src')
     },
   },
   server: {

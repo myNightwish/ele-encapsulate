@@ -1,5 +1,5 @@
 import MiForm from './src/index.vue';
-MiForm.install = function(app) {
+
+export default function(app) {
   app.component('MiForm', MiForm)
 };
-export default MiForm;

@@ -6,7 +6,6 @@
     @hasReached="handleReached"
     :color="'red'"
   ></Progress>
-
   <Progress
     :percentage="progress1"
     :isAnimate="true"

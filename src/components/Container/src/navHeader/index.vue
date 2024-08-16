@@ -25,7 +25,6 @@ const props = defineProps({
 
 const emits = defineEmits(['update:collapse'])
 const toggle = () => {
-  console.log('toggle')
   emits('update:collapse', !props.collapse);
 }
 </script>
@@ -37,11 +36,8 @@ const toggle = () => {
   display: flex;
   align-items: center;
   background-color: red;
-
-
 }
 .el-header {
-
   padding: 0;
 }
 </style>

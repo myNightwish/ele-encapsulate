@@ -1,13 +1,13 @@
 <template>
   <div>
-     1、普通层级
-      <Menu
+     <h2>1、普通层级</h2>
+      <TemplateMenu
         :data="originMenu"
         defaultActive="2"
         :router="false"
-       ></Menu>
-      2、无限菜单
-       <InfiniteMenu
+      ></TemplateMenu>
+      <h2>2、无限菜单</h2>
+      <InfiniteMenu
           :data="infiniteMenu"
           defaultActive="2"
           :router="false"

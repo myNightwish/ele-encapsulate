@@ -16,12 +16,10 @@ devp:
 	npm run dev:play
 
 new:
-	node new.js $(COMPONENT)
+	node ./src/script/newEntry.js $(COMPONENT)
 
-# buildfile: new
-# 	node build-entry.js
-buildEntry:
-	node build-entry.js
+buildfile: new
+	node ./src/script/build-entry.js
 
 init: buildfile
 	@echo '组件初始化已完成...🎉'

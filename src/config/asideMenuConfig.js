@@ -1,4 +1,4 @@
-export const asideMenu = [
+export const asideMenuConfig = [
   {
     name: '首页',
     icon: 'homeFilled',
@@ -10,7 +10,7 @@ export const asideMenu = [
     index: '/city'
   },
   {
-    name: '通知',
+    name: '通知面板',
     icon: 'bell',
     index: '/notify'
   },
@@ -36,7 +36,7 @@ export const asideMenu = [
   },
   {
     name: '弹窗表单',
-    icon: 'calendar',
+    icon: 'checked',
     index: '/modalform'
   }
 ];

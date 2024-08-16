@@ -1,7 +1,5 @@
 import Notify from './src/index.vue';
 
-Notify.install = function(app) {
+export default function(app) {
   app.component("Notify", Notify)
 }
-
-export default Notify;

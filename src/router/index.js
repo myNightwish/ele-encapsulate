@@ -40,7 +40,6 @@ const routes = [
   }
 ];
 
-// 创建并导出router实例
 const router = createRouter({
   history: createWebHistory(),
   routes,

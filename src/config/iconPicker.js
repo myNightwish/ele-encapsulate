@@ -1,6 +1,6 @@
 import { Setting, Location, Document, Bell, Menu,
    Edit, HomeFilled, Postcard, Calendar, Magnet,
-   List } from '@element-plus/icons';
+   List, Expand, Fold, Checked} from '@element-plus/icons';
 
 export const iconMap = {
   "setting": Setting,
@@ -13,10 +13,8 @@ export const iconMap = {
   "homeFilled": HomeFilled,
   "postcard": Postcard,
   "calendar": Calendar,
-  "list": List
-};
-export default {
-  install(app) {
-    app.config.globalProperties.$iconMap = iconMap;
-  }
+  "list": List,
+  "fold": Fold,
+  "expand": Expand,
+  "checked": Checked
 };
