@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Container from '../components/Container/src/index.vue';
+import MiContainer from '../components/MiContainer/src/index.vue';
 
 // 定义路由配置
 const routes = [
   {
     path: '/',
-    name: 'Container',
-    component: Container,
+    name: 'MiContainer',
+    component: MiContainer,
     children: [
       {
         path: '/city',

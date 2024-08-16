@@ -1,10 +1,10 @@
 <template>
   <div class="notify-out-wrapper">
-    <notify :value="38" :max="30" :isDot="false">
-      <Tab :list="notifyData" 
+    <MiNotify :value="38" :max="30" :isDot="false">
+      <MiTab :list="notifyData" 
       @clickItem="clickItem"
-      @clickAction="clickAction"></Tab>
-    </notify>
+      @clickAction="clickAction"></MiTab>
+    </MiNotify>
   </div>
 </template>
 

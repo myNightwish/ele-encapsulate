@@ -1,7 +1,7 @@
 <template>
   <div class="ModalFormDemo">
     <!-- 注意不是 v-model=“visible” -->
-    <modal-form v-model:visible="visible" title="编辑用户" width="50%" :options="formConfig">
+    <MiModalForm v-model:visible="visible" title="编辑用户" width="50%" :options="formConfig">
       <!-- 插槽套插槽的方式 -->
       <template #uploadArea>
         <el-button type="primary">点击上传</el-button>
@@ -19,7 +19,7 @@
         </el-button>
       </div>
     </template>
-    </modal-form>
+    </MiModalForm>
     <el-button @click="openForm">打开弹窗</el-button>
   </div>
 </template>

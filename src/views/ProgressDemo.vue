@@ -1,18 +1,18 @@
 <template>
-  <Progress
+  <MiProgress
     :percentage="progress1"
     :isAnimate="true"
     type="dashboard"
     @hasReached="handleReached"
     :color="'red'"
-  ></Progress>
-  <Progress
+  ></MiProgress>
+  <MiProgress
     :percentage="progress1"
     :isAnimate="true"
     @hasReached="handleReached"
     :color="'green'"
     :stroke-width="10"
-  ></Progress>
+  ></MiProgress>
 </template>
 
 <script setup>

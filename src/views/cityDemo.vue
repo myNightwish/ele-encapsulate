@@ -1,5 +1,5 @@
 <template>
-  <City @chooseCity="chooseCity"></City>
+  <MiCity @chooseCity="chooseCity"></MiCity>
 </template>
 
 <script setup>

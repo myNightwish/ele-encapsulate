@@ -6,5 +6,6 @@
   "MiTab": "./components/MiTab/index.js",
   "MiMenu": "./components/MiMenu/index.js",
   "MiModalForm": "./components/MiModalForm/index.js",
-  "MiProgress": "./components/MiProgress/index.js"
+  "MiProgress": "./components/MiProgress/index.js",
+  "MiContainer": "./components/MiContainer/index.js"
 }

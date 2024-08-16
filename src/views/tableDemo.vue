@@ -1,5 +1,5 @@
 <template>
-  <Mi-Table
+  <MiTable
     :options="tableConfig"
     :data="mockTableData"
     v-model:isEditRow="isEditRow"
@@ -41,7 +41,7 @@
       <el-button size="small" type="primary" @click.prevent="confirmEditCell(scope)">确认</el-button>
       <el-button size="small" type="danger" @click.prevent="cancelEditCell(scope)">取消</el-button>
     </template>
-  </Mi-Table>
+  </MiTable>
 </template>
 
 <script lang="ts" setup>

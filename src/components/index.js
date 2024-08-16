@@ -8,16 +8,19 @@ import MiTab from './MiTab/index.js';
 import MiMenu from './MiMenu/index.js';
 import MiModalForm from './MiModalForm/index.js';
 import MiProgress from './MiProgress/index.js';
+import MiContainer from './MiContainer/index.js';
+
 /* 导入组件库所有组件 */
 const components = [
-  MiForm,
+    MiForm,
   MiTable,
   MiCity,
   MiNotify,
   MiTab,
   MiMenu,
   MiModalForm,
-  MiProgress
+  MiProgress,
+  MiContainer
 ];
 
 /* 定义组件库组件注册安装的install方法, 当使用 use 注册插件，则所有的组件都将被注册 */
@@ -29,13 +32,14 @@ const install = function (app) {
 
 export default {
   /* 导出的对象必须具有 install，才能被 app.use() 方法安装 */
-  install,
-  MiForm,
+install,
+    MiForm,
   MiTable,
   MiCity,
   MiNotify,
   MiTab,
   MiMenu,
   MiModalForm,
-  MiProgress
+  MiProgress,
+  MiContainer
 };
