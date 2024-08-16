@@ -9,10 +9,6 @@ const routes = [
     component: Container,
     children: [
       {
-        path: '/home',
-        component: () => import('../views/Home.vue'),
-      },
-      {
         path: '/city',
         component: () => import('../views/ChooseCity.vue'),
       },

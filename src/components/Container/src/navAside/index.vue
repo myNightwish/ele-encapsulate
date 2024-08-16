@@ -11,17 +11,7 @@
 </template>
 
 <script setup>
-import { ref, defineComponent } from 'vue';
-import { Location, Document, Menu } from '@element-plus/icons';
 import { asideMenu} from './menu.js';
-// 注册
-defineComponent({
-  components: {
-    Menu,
-    Location,
-    Document
-  }
-})
 
 let props = defineProps({
   collapse: {

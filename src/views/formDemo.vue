@@ -31,12 +31,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref} from 'vue';
+import { ref} from 'vue';
 import {formConfig} from '@/config/formConfig';
 
-defineComponent({
-  name: 'FormDemo'
-})
 const form = ref();
 const onSubmit = (scope) => {
   scope.form.validate(valid => {

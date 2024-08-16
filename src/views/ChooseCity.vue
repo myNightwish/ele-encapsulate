@@ -3,13 +3,8 @@
 </template>
 
 <script setup>
-import { ref, defineComponent } from 'vue';
-
-defineComponent({
-  name: 'ChooseCity',
-});
 const chooseCity = (city) => {
-  console.log('sss', city);
+  console.log('更新了城市', city);
 };
 </script>
 

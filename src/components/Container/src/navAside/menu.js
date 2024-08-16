@@ -2,7 +2,7 @@ export const asideMenu = [
   {
     name: '首页',
     icon: 'homeFilled',
-    index: '/home'
+    index: '/'
   },
   {
     name: '城市地图',

@@ -17,14 +17,10 @@
 </template>
 
 <script setup>
-import {defineComponent, ref } from 'vue';
-
-defineComponent({
-  name: 'ProgressDemo',
-});
+import { ref } from 'vue';
 
 const handleReached = () => {
-  console.log('已完成');
+  console.log('已完成进度加载.......');
 };
 
 const progress1 = ref(60);

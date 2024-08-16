@@ -25,12 +25,10 @@
 </template>
 
 <script setup>
-import { defineComponent,ref } from 'vue';
+import { ref } from 'vue';
 import {formConfig} from '@/config/formConfig';
 import { ElMessage } from 'element-plus'
-defineComponent({
-  name: 'ModalFormDemo',
-})
+
 const visible = ref(false);
 
 const openForm = () => {
