@@ -16,7 +16,7 @@ const uppercamelcase = require('uppercamelcase');
 const inputCompName = process.argv[2];
 // 获取组件名（英文），并转换组件名为大驼峰命名法
 const upperCameName = uppercamelcase(inputCompName);
-const PackagePath = path.resolve(__dirname, './src/components', upperCameName);
+const PackagePath = path.resolve('','src/components', upperCameName);
 
 // 更新 components.json
 const componentsFile = require('./components.json');
