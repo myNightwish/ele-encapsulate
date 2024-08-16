@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mi-city-wrapper">
     <el-select v-model="province" clearable placeholder="请选择省份" style="width: 240px">
         <el-option
           v-for="item in provinceData"
@@ -62,7 +62,7 @@ watch(area, val => {
 })
 
 defineComponent({
-  name: 'City',
+  name: 'MiCity',
 })
 
 const emits = defineEmits(['chooseCity']);

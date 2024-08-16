@@ -1,5 +1,10 @@
 {
   "MiForm": "./components/MiForm/index.js",
-  "ModalForm": "./components/ModalForm/index.js",
-  "MiTable": "./components/MiTable/index.js"
+  "MiTable": "./components/MiTable/index.js",
+  "MiCity": "./components/MiCity/index.js",
+  "MiNotify": "./components/MiNotify/index.js",
+  "MiTab": "./components/MiTab/index.js",
+  "MiMenu": "./components/MiMenu/index.js",
+  "MiModalForm": "./components/MiModalForm/index.js",
+  "MiProgress": "./components/MiProgress/index.js"
 }

@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="activeName" class="demo-tabs">
+  <el-tabs v-model="activeName" class="mi-tab-wrapper">
     <el-tab-pane
       v-for="(item, index) in list"
       :label="item.title"

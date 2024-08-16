@@ -62,4 +62,5 @@ Files.forEach(file => {
     .end('\n');
 });
 
-console.log('--------DONE--------!');
+console.log('-------- [组件新建] DONE --------', OUTPUT_PATH);
+

@@ -2,7 +2,6 @@ var Components = require('./components.json');
 var fs = require('fs');
 var render = require('json-templater/string');
 var uppercamelcase = require('uppercamelcase');
-var path = require('path');
 var endOfLine = require('os').EOL;
 
 // 最终生成的入口文件路径
@@ -27,7 +26,7 @@ const install = function (app) {
 
 export default {
   /* 导出的对象必须具有 install，才能被 app.use() 方法安装 */
-  install,
+install,
   {{list}}
 };
 `;

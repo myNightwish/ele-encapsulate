@@ -1,5 +1,5 @@
 <template>
-  <div class="ModalForm-wrapper">
+  <div class="mi-modal-form-wrapper">
     <el-dialog 
      v-model="dialogVisible"
      v-bind="$attrs"
