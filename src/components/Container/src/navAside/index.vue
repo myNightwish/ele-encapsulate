@@ -4,6 +4,7 @@
           :data="asideMenu"
           :defaultActive="$route.path"
           :router="true"
+          :hasUniqueKey="true"
           :collapse="collapse"
           class="el-menu-vertical-demo"
        />

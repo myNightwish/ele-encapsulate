@@ -1,6 +1,6 @@
-// 导入Vue Router等相关依赖（如果需要）
 import { createRouter, createWebHistory } from 'vue-router';
 import Container from '../components/Container/src/index.vue';
+
 // 定义路由配置
 const routes = [
   {
@@ -10,19 +10,19 @@ const routes = [
     children: [
       {
         path: '/city',
-        component: () => import('../views/ChooseCity.vue'),
+        component: () => import('../views/cityDemo.vue'),
       },
       {
         path: '/notify',
-        component: () => import('../views/Notify.vue'),
+        component: () => import('../views/notifyDemo.vue'),
       },
       {
         path: '/menu',
-        component: () => import('../views/Menu.vue'),
+        component: () => import('../views/menuDemo.vue'),
       },
       {
         path: '/progress',
-        component: () => import('../views/ProgressDemo.vue'),
+        component: () => import('../views/progressDemo.vue'),
       },
       {
         path: '/form',
@@ -30,7 +30,7 @@ const routes = [
       },
       {
         path: '/modalform',
-        component: () => import('../views/modalformDemo.vue'),
+        component: () => import('../views/modalFormDemo.vue'),
       },
       {
         path: '/table',
