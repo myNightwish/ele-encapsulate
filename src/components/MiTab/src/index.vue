@@ -31,7 +31,6 @@
               v-for="(actionItem, idx) in item.operations"
               :type="actionItem.type"
               size="small"
-              plain
               @click="actionClick(actionItem, idx)"
           >{{ actionItem.name }}</el-button>
       </div>

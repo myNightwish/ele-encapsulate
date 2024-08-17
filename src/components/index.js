@@ -9,6 +9,7 @@ import MiMenu from './MiMenu/index.js';
 import MiModalForm from './MiModalForm/index.js';
 import MiProgress from './MiProgress/index.js';
 import MiContainer from './MiContainer/index.js';
+import MiThemeEditor from './MiThemeEditor/index.js';
 
 /* 导入组件库所有组件 */
 const components = [
@@ -20,7 +21,8 @@ const components = [
   MiMenu,
   MiModalForm,
   MiProgress,
-  MiContainer
+  MiContainer,
+  MiThemeEditor
 ];
 
 /* 定义组件库组件注册安装的install方法, 当使用 use 注册插件，则所有的组件都将被注册 */
@@ -41,5 +43,6 @@ install,
   MiMenu,
   MiModalForm,
   MiProgress,
-  MiContainer
+  MiContainer,
+  MiThemeEditor
 };

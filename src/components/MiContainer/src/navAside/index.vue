@@ -1,13 +1,13 @@
 <template>
-    <el-aside width="auto">
+    <!-- <el-aside width="auto"> -->
       <InfiniteMenu
           :data="asideMenuConfig"
           :defaultActive="$route.path"
           :router="true"
           :collapse="collapse"
-          class="el-menu-vertical-demo"
+          class="el-menu-vertical-wrapper"
        />
-    </el-aside>
+    <!-- </el-aside> -->
 </template>
 
 <script setup>
@@ -20,3 +20,9 @@ const props = defineProps({
   }
 })
 </script>
+<style lang="scss" scoped>
+.el-menu.el-menu--vertical.el-menu-vertical-wrapper {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+</style>

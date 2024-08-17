@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="menu-demo">
      <h2>1、普通层级</h2>
       <TemplateMenu
         :data="originMenu"

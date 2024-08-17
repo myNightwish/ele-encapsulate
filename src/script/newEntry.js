@@ -42,10 +42,6 @@ export default function(app) {
 </template>
 
 <script setup>
-import { defineComponent } from 'vue';
-defineComponent({
-  name: '${upperCameName}',
-})
 </script>`
   }
 ];

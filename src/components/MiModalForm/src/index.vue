@@ -39,12 +39,9 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, watch, PropType} from 'vue';
+import { ref, watch, PropType} from 'vue';
 import { FormOptions } from '@/types/form.ts';
 
-defineComponent({
-  name: 'ModalForm',
-})
 const props = defineProps({
   visible: {
     type: Boolean,

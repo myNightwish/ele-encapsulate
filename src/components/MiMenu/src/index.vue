@@ -40,12 +40,7 @@
 </template>
 
 <script setup>
-import { defineComponent } from 'vue';
 import { iconMap } from '@/config/iconPicker.js';
-
-defineComponent({
-  name: 'Menu',
-});
 
 const props = defineProps({
   data: {

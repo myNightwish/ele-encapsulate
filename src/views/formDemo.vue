@@ -23,7 +23,7 @@
       <!-- scope 从子组件分发出来 -->
       <template #action="scope">
         <el-button type="primary" @click="onSubmit(scope)">提交</el-button>
-        <el-button type="primary" plain @click="resetForm">取消</el-button>
+        <el-button type="primary" @click="resetForm">取消</el-button>
       </template>
     </MiForm>
 </template>

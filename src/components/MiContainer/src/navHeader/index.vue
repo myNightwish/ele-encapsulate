@@ -1,20 +1,20 @@
 <template>
-    <el-header @click="toggle" class="header-wrapper">
-        <el-icon v-if="collapse"><Expand /></el-icon>
-        <el-icon v-else><Fold /></el-icon>
+    <el-header class="header-wrapper">
+        <el-icon @click="toggle">
+          <template v-if="collapse">
+            <Expand />
+          </template>
+          <template v-else>
+            <Fold />
+          </template>
+        </el-icon>
+        <!-- 插入主题编辑器 -->
+        <slot name="themePicker"></slot>
     </el-header>
 </template>
 
 <script setup>
-import { defineComponent } from 'vue';
 import { Expand, Fold } from '@element-plus/icons';
-// 注册
-defineComponent({
-  components: {
-    Expand,
-    Fold
-  }
-})
 
 const props = defineProps({
   collapse: {
@@ -35,7 +35,6 @@ const toggle = () => {
   padding: 0 20px;
   display: flex;
   align-items: center;
-  background-color: red;
 }
 .el-header {
   padding: 0;

@@ -38,7 +38,6 @@ const emits = defineEmits(['editorChanged']);
 // 内容 HTML
 const valueHtml = ref('')
 valueHtml.value = `<p>${props.item.value}</p>`;
-console.log('props.item.value-', props.item)
 
 const toolbarConfig = {};
 const editorConfig = { placeholder: props.placeholder || '请输入内容...' };

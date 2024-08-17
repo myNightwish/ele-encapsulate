@@ -7,5 +7,6 @@
   "MiMenu": "./components/MiMenu/index.js",
   "MiModalForm": "./components/MiModalForm/index.js",
   "MiProgress": "./components/MiProgress/index.js",
-  "MiContainer": "./components/MiContainer/index.js"
+  "MiContainer": "./components/MiContainer/index.js",
+  "MiThemeEditor": "./components/MiThemeEditor/index.js"
 }

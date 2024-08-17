@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { ref, defineComponent,computed, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import provinceData from '@/mock/city.json';
 
 const province = ref('');
@@ -59,10 +59,6 @@ watch(city, () => {
 })
 watch(area, val => {
   val && emitCity();
-})
-
-defineComponent({
-  name: 'MiCity',
 })
 
 const emits = defineEmits(['chooseCity']);

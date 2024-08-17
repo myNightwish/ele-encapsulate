@@ -4,6 +4,7 @@
     :data="copyTableData"
     :default-sort="tableSort"
     class="tabble-wrapper"
+    row-class-name="fggg"
     @row-click="rowClick"
   >
     <template v-for="(item, index) in normalOptions" :key="item.prop">
@@ -237,6 +238,7 @@ const clickEdit = (col: string, idx: number, scope: any) => {
 .edit-wrapper {
   display: flex;
   align-items: center;
+
   .el-icon {
     margin-left: 16px;
   }
