@@ -15,13 +15,13 @@ dev:
 devp:
 	npm run dev:play
 
-new:
-	node ./src/script/newEntry.js $(COMPONENT)
+newEntry:
+	node ./script/newEntry.js $(COMPONENT)
 
-buildfile: new
-	node ./src/script/build-entry.js
+createNew: newEntry
+	node ./script/genetateEntryFile.js
 
-init: buildfile
+init: createNew
 	@echo '组件初始化已完成...🎉'
 
 help:

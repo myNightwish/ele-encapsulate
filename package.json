@@ -7,8 +7,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "genemock": "npx tsc ./data.ts && node ./data.js",
-    "lint": "eslint --ext .js,.vue src",
-    "format": "prettier --write \"src/**/*.{js,vue,scss,css}\""
+    "format": "prettier --write \"src/**/*.{js,vue,scss,css}\"",
+    "build:comps": "node ./script/buildProject",
+    "lib": "npm run build:comps"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -16,7 +17,6 @@
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.7.4",
     "element-plus": "^2.7.8",
-    "file-save": "^0.2.0",
     "json-templater": "^1.2.0",
     "lodash": "^4.17.21",
     "sass": "^1.77.8",
@@ -33,6 +33,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.27.0",
+    "file-save": "^0.2.0",
+    "fs-extra": "^11.2.0",
     "mockjs": "^1.1.0",
     "prettier": "^3.3.3",
     "vite": "^5.3.4"
