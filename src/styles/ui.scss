@@ -1,8 +1,20 @@
+// 定义主色调
+$primary-color: #409EFF;
+$secondary-color: #ccc;
+$text-color: #303133;
+$background-color: #FFFFFF;
+
+$text-color-light-1:  mix($text-color, #fff, 40%);
+$text-color-dark-1:  mix($text-color, #000, 20%);
+$secondary-color-light-1: mix($text-color, #ccc, 10%);
+
 :root {
-  --primary-color: #409EFF;
-  --secondary-color: #67C23A;
-  --text-color: #303133;
-  --background-color: #FFFFFF;
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --text-color: #{$text-color};
+  --text-color-light-1: #{$text-color-light-1};
+  --background-color: #{$background-color};
+  --secondary-color-light-1: #{$secondary-color-light-1};
 }
 
 /* 使用这些变量定义组件的样式 */
@@ -11,23 +23,34 @@
   color: var(--text-color);
 }
 
-.el-form,.el-dialog {
-  background: var(--secondary-color) !important;
+.el-form, .el-dialog {
+  background-color: var(--secondary-color-light-1) !important;
 }
 .el-sub-menu__title.el-menu-item, .el-sub-menu__title,.el-menu-item,
 .el-form-item, .el-form-item__label,
 .el-checkbox, input,
 .el-dialog__title {
-  color: unset !important;
   color: var(--text-color) !important;
+}
+
+.el-menu-item, .el-sub-menu, .menu-demo {
+  background-color: unset;
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border: none !important;
 }
 .menu-demo {
   background: var(--background-color) !important;
   color: var(--text-color) !important;
-  .el-menu.el-menu--vertical {
+  border-right: none !important;
+
+  .el-menu, .el-menu--vertical, .el-sub-menu, .el-menu-item {
     background: var(--background-color) !important;
-    color: var(--text-color) !important;
+    border: none !important;
   }
+}
+.ul.el-menu.el-menu--vertical.el-menu-vertical-wrapper {
+  height: 100%;
 }
 .demo-tabs {
   overflow: hidden;

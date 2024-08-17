@@ -30,6 +30,7 @@ const collapse = ref(false)
 .content-wrapper {
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--text-color-light-1) !important;
 
   .header-area {
     display: flex;

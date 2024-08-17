@@ -67,14 +67,10 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, computed, watch, onMounted, PropType } from 'vue';
+import { ref, computed, watch, onMounted, PropType } from 'vue';
 import { Edit, Select, CloseBold } from '@element-plus/icons';
 import cloneDeep from 'lodash/cloneDeep';
 import {tableOptions} from '@/types/tableOptions.ts';
-
-defineComponent({
-  name: 'MiTable',
-})
 
 const props = defineProps({
   options: {

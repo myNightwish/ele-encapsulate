@@ -1,14 +1,13 @@
 <template>
   <div class="mi-theme-editor-wrapper" :class="{ dark: isDarkMode }">
-    <h4>在线主题定制</h4>
+    <h4>在线主题定制
+      <el-button @click="saveTheme">保存</el-button>
+      <el-button @click="loadTheme">加载</el-button>
+    </h4>
     <div class="theme-content">
       <div>
         <label for="primary-color">主色调</label>
         <input type="color" id="primary-color" v-model="primaryColor" @change="updateTheme('primary-color', primaryColor)" />
-      </div>
-      <div>
-        <label for="secondary-color">次色调</label>
-        <input type="color" id="secondary-color" v-model="secondaryColor" @change="updateTheme('secondary-color', secondaryColor)" />
       </div>
       <div>
         <label for="text-color">文字颜色</label>
@@ -18,8 +17,6 @@
         <label for="background-color">背景颜色</label>
         <input type="color" id="background-color" v-model="backgroundColor" @change="updateTheme('background-color', backgroundColor)" />
       </div>
-      <el-button @click="saveTheme">保存主题</el-button>
-      <el-button @click="loadTheme">加载主题</el-button>
       <!-- 暗黑模式切换按钮 -->
       <div class="dark-mode-toggle" @click="toggleDarkMode">
         <i class="iconfont icon-sun" :class="{ 'slide-right': isDarkMode }"></i>
@@ -33,7 +30,7 @@
 import { ref } from 'vue';
 
 const primaryColor = ref('#409EFF');
-const secondaryColor = ref('#67C23A');
+const secondaryColor = ref('#ccc');
 const textColor = ref('#303133');
 const backgroundColor = ref('#FFFFFF');
 const isDarkMode = ref(false);
