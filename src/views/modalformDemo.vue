@@ -49,8 +49,7 @@ const ensure = (scope) => {
     validate((valid) => {
         if (valid) {
             ElMessage.success('验证成功');
-            // 拿到了表单数据
-            console.log('scope.form.getFormData()', scope.form.getFormData());
+            // 拿到了表单数据 scope.form.getFormData()
         } else {
             ElMessage.error('验证成功');
         }

@@ -130,7 +130,6 @@ const deleteRow = (scope) => {
         // 更新 total 的值，以反映删除后的总数
         total.value -= 1;
     }
-    console.log('删除后的数据:', mockTableData.value);
 };
 
 const confirmEditCell = (scope) => {
