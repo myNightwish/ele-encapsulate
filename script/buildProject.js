@@ -45,7 +45,7 @@ const buildAll = async () => {
       rollupOptions,
       lib: {
         entry: path.resolve(entryDir, 'index.js'),
-        name: 'vue3-ele-components',
+        name: "mi-encapsulate-components",
         fileName: 'index',
         formats: ['es', 'umd'] // 生成 ES 模块和 UMD 格式
       },
@@ -61,8 +61,8 @@ const buildSingle = async (name) => {
       rollupOptions,
       lib: {
         entry: path.resolve(entryDir, name),
-        name: `${name}`,
-        fileName: `${name}`,
+        name: "index",
+        fileName: "index",
         formats: ['es', 'umd'] // 生成 ES 模块和 UMD 格式
       },
       outDir: path.resolve(outDir, name)
@@ -71,21 +71,49 @@ const buildSingle = async (name) => {
 }
 // 而对于按需引入，还需要为每个组件生成自己的package.json
 const createPackageJson = (name) => {
-  const fileStr = `
-  {
-    "name": "${name}",
-    "main": "index.umd.js",
-    "module": "index.es.js",
-    "style": "style.css"
-  }`;
+  const fileStr =`
+{
+  "name": "${name}",
+  "main": "index.umd.js",
+  "module": "index.es.js",
+  "style": "style.css"
+}`;
   const OUTPUT_PATH = path.resolve(outDir,`${name}/package.json`);
   fileSave(OUTPUT_PATH)
   .write(fileStr, 'utf8')
   .end('\n');
 }
+const createRootPackageJson = () => {
+  const packageJsonPath = path.resolve(outDir, 'package.json');
+  // 默认的 package.json 内容
+  const defaultPackageJson = {
+    "name": "mi-encapsulate-components",
+    "version": "1.0.0",
+    "main": "index.umd.js",
+    "module": "index.es.js",
+    "style": "style.css",
+    "author": {
+      "name": "mynightwish"
+    },
+    "keywords": [
+      "二次封装",
+      "element-plus",
+      "组件封装"
+    ]
+  };
+  // 检查文件是否存在
+  if (!fs.existsSync(packageJsonPath)) {
+    // 如果文件不存在，创建文件并写入默认内容
+    fs.writeFileSync(packageJsonPath, JSON.stringify(defaultPackageJson, null, 2), 'utf8');
+  }
+}
 
 const buildLib = async () => {
-  await buildAll();
+  buildAll().then(() => {
+    createRootPackageJson();
+  });
+
+  // 按需引入：
   // 这里其实可以用component.json简化
   // 拿到所有的组件名数组
   const compsName = fs.readdirSync(entryDir).filter(
