@@ -6,7 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "genemock": "npx tsc ./data.ts && node ./data.js"
+    "genemock": "npx tsc ./data.ts && node ./data.js",
+    "lint": "eslint --ext .js,.vue src",
+    "format": "prettier --write \"src/**/*.{js,vue,scss,css}\""
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -27,7 +29,12 @@
     "@element-plus/icons": "^0.0.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-vue": "^9.27.0",
     "mockjs": "^1.1.0",
+    "prettier": "^3.3.3",
     "vite": "^5.3.4"
   }
 }
