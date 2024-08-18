@@ -10,7 +10,7 @@ import './styles/ui.scss';
 // 2、 ui.scss是全局项目文件需要被引入
 // import encapsulteComps from '../lib/index';
 import encapsulteComps from 'mi-encapsulate-components/index';
-// import 'mi-encapsulate-components/style.css';
+import 'mi-encapsulate-components/style.css';
 
 // 按需引入
 // todo：为什这里又要带umd了？？
