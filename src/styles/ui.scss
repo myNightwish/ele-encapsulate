@@ -27,7 +27,8 @@ $secondary-color-light-1: mix($text-color, #ccc, 10%);
 .el-dialog {
     background-color: var(--secondary-color-light-1) !important;
 }
-.el-menu-item,
+.el-menu:not(.is-active),
+.el-menu-item:not(.is-active),
 .el-sub-menu__title,
 .el-form-item,
 .el-form-item__label,
@@ -37,8 +38,9 @@ input,
     color: var(--text-color) !important;
 }
 
-.el-menu-item,
-.el-sub-menu,
+.el-menu:not(.is-active),
+.el-menu-item:not(.is-active),
+.el-sub-menu:not(.is-active),
 .menu-demo {
     background-color: unset;
     background-color: var(--background-color) !important;
