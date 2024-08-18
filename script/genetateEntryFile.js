@@ -5,7 +5,7 @@ var uppercamelcase = require('uppercamelcase');
 var endOfLine = require('os').EOL;
 
 // 最终生成的入口文件路径
-var OUTPUT_PATH = 'src/components/index.js';
+var OUTPUT_PATH = 'packages/index.js';
 
 //  模板定义
 var IMPORT_TEMPLATE = "import {{name}} from './{{package}}/index.js';";

@@ -1,12 +1,12 @@
 {
-  "MiForm": "./components/MiForm/index.js",
-  "MiTable": "./components/MiTable/index.js",
-  "MiCity": "./components/MiCity/index.js",
-  "MiNotify": "./components/MiNotify/index.js",
-  "MiTab": "./components/MiTab/index.js",
-  "MiMenu": "./components/MiMenu/index.js",
-  "MiModalForm": "./components/MiModalForm/index.js",
-  "MiProgress": "./components/MiProgress/index.js",
-  "MiContainer": "./components/MiContainer/index.js",
-  "MiThemeEditor": "./components/MiThemeEditor/index.js"
+  "MiForm": "./packages/MiForm/index.js",
+  "MiTable": "./packages/MiTable/index.js",
+  "MiCity": "./packages/MiCity/index.js",
+  "MiNotify": "./packages/MiNotify/index.js",
+  "MiTab": "./packages/MiTab/index.js",
+  "MiMenu": "./packages/MiMenu/index.js",
+  "MiModalForm": "./packages/MiModalForm/index.js",
+  "MiProgress": "./packages/MiProgress/index.js",
+  "MiContainer": "./packages/MiContainer/index.js",
+  "MiThemeEditor": "./packages/MiThemeEditor/index.js"
 }

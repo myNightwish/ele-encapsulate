@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import MiContainer from '../components/MiContainer/src/index.vue';
+import MiContainer from '../../packages/MiContainer/src/index.vue';
 
 // 定义路由配置
 const routes = [

@@ -46,7 +46,7 @@ export default function(app) {
     },
 ];
 
-componentsFile[upperCameName] = `./components/${upperCameName}/index.js`;
+componentsFile[upperCameName] = `./packages/${upperCameName}/index.js`;
 fileSave(path.join(__dirname, './components.json'))
     .write(JSON.stringify(componentsFile, null, '  '), 'utf8')
     .end('\n');
