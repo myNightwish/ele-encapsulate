@@ -1,1 +1,0 @@
-import{_ as c,r as s,o as n,c as _}from"./index-C0stvuj4.js";const a={__name:"cityDemo",setup(r){const t=o=>{console.log("更新了城市",o)};return(o,i)=>{const e=s("MiCity");return n(),_(e,{onChooseCity:t})}}},m=c(a,[["__scopeId","data-v-a39f5424"]]);export{m as default};
