@@ -9,7 +9,14 @@
     "genemock": "npx tsc ./data.ts && node ./data.js",
     "format": "prettier --write \"src/**/*.{js,vue,scss,css}\"",
     "build:comps": "node ./script/buildProject",
-    "lib": "npm run build:comps"
+    "lib": "npm run build:comps",
+    "commit": "git-cz",
+    "lint:commit": "commitlint --from=HEAD~1 --to=HEAD"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
@@ -27,15 +34,21 @@
     "vue-router": "^4.4.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@element-plus/icons": "^0.0.11",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.27.0",
     "file-save": "^0.2.0",
     "fs-extra": "^11.2.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "mockjs": "^1.1.0",
     "prettier": "^3.3.3",
     "vite": "^5.3.4"
