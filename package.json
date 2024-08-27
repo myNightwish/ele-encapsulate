@@ -16,6 +16,19 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
+    },
+    "lint-staged": {
+      "*.{js,ts,vue}": [
+        "eslint --fix",
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "husky": {
+      "hooks": {
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+        "pre-commit": "lint-staged"
+      }
     }
   },
   "dependencies": {
@@ -41,7 +54,7 @@
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.27.0",
