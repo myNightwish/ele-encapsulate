@@ -18,6 +18,5 @@ import encapsulteComps from '../packages/index';
 // import MiCity from 'mi-encapsulate-components/MiCity/index.umd.js';
 
 const app = createApp(App);
-app.use(router).use(ElementPlus)
-.use(encapsulteComps)
+app.use(router).use(ElementPlus).use(encapsulteComps);
 app.mount('#app');

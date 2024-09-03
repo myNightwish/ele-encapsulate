@@ -1,7 +1,7 @@
 <template>
     <el-table
         v-bind="$attrs"
-        :data="copyTableData"
+        :data="processedData"
         class="tabble-wrapper"
         row-class-name="fggg"
         @row-click="rowClick"
@@ -12,6 +12,12 @@
                 :label="item.label"
                 :width="item.colWidth"
             >
+                <template #header="scope">
+                    <div v-if="item.renderHeader">
+                        <component :is="item.renderHeader" />
+                    </div>
+                    <span v-else>{{ item.label }}</span>
+                </template>
                 <template #default="scope">
                     <template v-if="scope.row.rowEdit">
                         <el-input
@@ -158,7 +164,20 @@ watch(
     },
     { deep: true }
 );
-
+const processedData = computed(() => {
+    return copyTableData.value.map((row) => {
+        // 遍历每个列配置项，预处理数据
+        props.options.forEach((column) => {
+            if (column.formatter) {
+                row[column.prop] = column.formatter(row[column.prop]);
+            }
+            if (column.codeMap && row[column.prop]) {
+                row[column.prop] = column.codeMap[row[column.prop]] || row[column.prop];
+            }
+        });
+        return row;
+    });
+});
 
 const updateRowEdit = (flag: boolean) => {
     copyTableData.value.forEach((item) => (item.rowEdit = flag));

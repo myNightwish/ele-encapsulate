@@ -28,7 +28,8 @@
                 size="small"
                 type="danger"
                 @click.prevent="deleteRow(scope)"
-                >删除</el-button>
+                >删除</el-button
+            >
         </template>
         <!-- 行编辑：编辑完毕更新区 -->
         <template #editRow="{ scope }">
@@ -36,19 +37,21 @@
                 size="small"
                 type="primary"
                 @click.stop="confirmEditRow(scope)"
-                >确定编辑</el-button>
+                >确定编辑</el-button
+            >
             <el-button
                 size="small"
                 type="danger"
                 @click.stop="cancelEditRow(scope)"
-            >取消编辑</el-button>
+                >取消编辑</el-button
+            >
         </template>
         <!-- 单元格编辑区 -->
         <template #editCell="{ scope }">
             <el-button
                 size="small"
                 type="primary"
-                @click.prevent="confirmEditCell(scope,)"
+                @click.prevent="confirmEditCell(scope)"
                 >确认</el-button
             >
             <el-button
@@ -93,7 +96,7 @@ const saveRowData = (scope) => {
     if (!originalOutRowData.value[rowId]) {
         originalOutRowData.value[rowId] = { ...scope.row };
     }
-}
+};
 // 更新编辑态：从而开启或关闭编辑状态的视图
 const toggleEditRow = (scope) => {
     saveRowData(scope);
@@ -111,7 +114,7 @@ const deleteRow = (scope) => {
 // 记录单元格正在被编辑的数据
 const editingCell = (scope) => {
     saveRowData(scope);
-}
+};
 // 通用单元格编辑逻辑
 const commonCellEditEnsure = (scope) => {
     const rowId = scope.row.id;
@@ -124,9 +127,9 @@ const commonCellEditEnsure = (scope) => {
         originalOutRowData.value[rowId] = { ...scope.row };
         // 确保关闭当前行的编辑状态
         editedRow.rowEdit = false;
-    };
+    }
     resetInput();
-}
+};
 
 const commonCellEditCancel = (scope) => {
     const rowId = scope.row.id;
@@ -138,10 +141,10 @@ const commonCellEditCancel = (scope) => {
         delete originalOutRowData.value[rowId];
         // 确保关闭当前行的编辑状态
         editedRow.rowEdit = false;
-    };
+    }
 
     resetInput();
-}
+};
 // 通用重置输入框
 const resetInput = () => {
     editRowFlag.value = '';
