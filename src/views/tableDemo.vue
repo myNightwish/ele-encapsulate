@@ -2,7 +2,6 @@
     <MiTable
         :options="tableConfig"
         :data="mockTableData"
-        v-model:originalOutRowData="originalOutRowData"
         v-model:isEditRow="isEditRow"
         v-model:editRowFlag="editRowFlag"
         @cancelInput="cancelInput"
@@ -88,9 +87,16 @@ const fetchData = async () => {
 onMounted(() => {
     fetchData();
 });
-
+const saveRowData = (scope) => {
+    const rowId = scope.row.id;
+    // 如果原始数据尚未保存，则进行保存
+    if (!originalOutRowData.value[rowId]) {
+        originalOutRowData.value[rowId] = { ...scope.row };
+    }
+}
 // 更新编辑态：从而开启或关闭编辑状态的视图
 const toggleEditRow = (scope) => {
+    saveRowData(scope);
     editRowFlag.value = scope.row.rowEdit ? '' : 'edit';
     isEditRow.value = !isEditRow.value;
 };
@@ -104,11 +110,7 @@ const deleteRow = (scope) => {
 
 // 记录单元格正在被编辑的数据
 const editingCell = (scope) => {
-    const rowId = scope.row.id;
-    // 保存原始数据，以备取消时使用
-    if (!originalOutRowData.value[rowId]) {
-        originalOutRowData.value[rowId] = { ...scope.row };
-    }
+    saveRowData(scope);
 }
 // 通用单元格编辑逻辑
 const commonCellEditEnsure = (scope) => {
@@ -133,7 +135,7 @@ const commonCellEditCancel = (scope) => {
     const editedRow = mockTableData.value.find((row) => row === scope.row);
     if (editedRow) {
         Object.assign(scope.row, originalData);
-        // delete originalOutRowData.value[rowId];
+        delete originalOutRowData.value[rowId];
         // 确保关闭当前行的编辑状态
         editedRow.rowEdit = false;
     };

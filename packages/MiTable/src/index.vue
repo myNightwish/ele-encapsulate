@@ -117,10 +117,6 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    originalOutRowData: {
-        type: Object,
-        default: () => ({}),
-    },
 });
 
 const emits = defineEmits([
