@@ -171,9 +171,6 @@ const processedData = computed(() => {
             if (column.formatter) {
                 row[column.prop] = column.formatter(row[column.prop]);
             }
-            if (column.codeMap && row[column.prop]) {
-                row[column.prop] = column.codeMap[row[column.prop]] || row[column.prop];
-            }
         });
         return row;
     });
