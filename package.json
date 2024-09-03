@@ -39,7 +39,7 @@
     "element-plus": "^2.7.8",
     "json-templater": "^1.2.0",
     "lodash": "^4.17.21",
-    "mi-encapsulate-components": "^1.0.2",
+    "mi-encapsulate-components": "file:lib/mi-encapsulate-components-1.0.2.tgz",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "uppercamelcase": "^3.0.0",

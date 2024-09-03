@@ -2,17 +2,15 @@
     <el-table
         v-bind="$attrs"
         :data="copyTableData"
-        :default-sort="tableSort"
         class="tabble-wrapper"
         row-class-name="fggg"
         @row-click="rowClick"
     >
-        <template v-for="(item, index) in normalOptions" :key="item.prop">
+        <template v-for="(item, _) in normalOptions" :key="item.prop">
             <el-table-column
                 :prop="item.prop"
                 :label="item.label"
                 :width="item.colWidth"
-                sortable
             >
                 <template #default="scope">
                     <template v-if="scope.row.rowEdit">
@@ -32,7 +30,7 @@
                                 ></el-input>
                                 <span
                                     v-if="$slots.editCell"
-                                    @click.stop="handleEditCell"
+                                    @click.stop="handleSlotEditCell"
                                     class="self-edit"
                                 >
                                     <slot name="editCell" :scope="scope"></slot>
@@ -44,7 +42,7 @@
                                         ><Select
                                     /></el-icon>
                                     <el-icon
-                                        @click.stop="cancelInput"
+                                        @click.stop="cancelInput(scope)"
                                         class="cancel"
                                         ><CloseBold
                                     /></el-icon>
@@ -65,10 +63,9 @@
                                         scope.column.id,
                                         scope.$index,
                                         scope
-                                    )
-                                "
-                                ><Edit
-                            /></el-icon>
+                                    )"
+                                ><Edit/>
+                            </el-icon>
                         </div>
                     </template>
                 </template>
@@ -90,18 +87,6 @@
             </template>
         </el-table-column>
     </el-table>
-    <div v-if="showPagination" class="demo-pagination-block">
-        <el-pagination
-            :current-page="curPage"
-            :page-size="pageSize"
-            :page-sizes="pageSizeArr"
-            :size="size"
-            layout="sizes, prev, pager, next"
-            :total="total"
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-        />
-    </div>
 </template>
 
 <script lang="ts" setup>
@@ -132,32 +117,7 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    curPage: {
-        type: Number,
-        default: 1,
-    },
-    total: {
-        type: Number,
-        require: true,
-    },
-    // 一页多少条
-    pageSize: {
-        type: Number,
-        default: 10,
-    },
-    size: {
-        type: String,
-        default: 'small',
-    },
-    pageSizeArr: {
-        type: Array as PropType<number[]>,
-        default: () => [10, 20, 30, 40],
-    },
-    showPagination: {
-        type: Boolean,
-        default: true,
-    },
-    tableSort: {
+    originalOutRowData: {
         type: Object,
         default: () => ({}),
     },
@@ -166,13 +126,13 @@ const props = defineProps({
 const emits = defineEmits([
     'ensureInput',
     'cancelInput',
-    'changeCurPage',
-    'changePageSize',
     'update:editRowFlag',
     'update:isEditRow',
+    'editingCell'
 ]);
 
 const copyTableData = ref(cloneDeep(props.data));
+const originalRowData = ref<any>({}); // 保存每一行原始数据的快照
 const curEdit = ref<string>('');
 
 const normalOptions = computed(() =>
@@ -203,64 +163,90 @@ watch(
     { deep: true }
 );
 
-const handleSizeChange = (val: number) => emits('changePageSize', val);
-const handleCurrentChange = (val: number) => emits('changeCurPage', val);
 
 const updateRowEdit = (flag: boolean) => {
     copyTableData.value.forEach((item) => (item.rowEdit = flag));
 };
+const resetInput = () => {
+    // 恢复按钮到非编辑状态
+    curEdit.value = '';
+    emits('update:editRowFlag', '');
+    emits('update:isEditRow', false);
+}
 
-const ensureInput = (scope) => {
+// 包含默认/插槽的两种情况
+const commonCellEditEnsure = (scope) => {
+    const rowId = scope.row.id;
     // 找到编辑行的数据，并应用编辑后的值
     const editedRow = copyTableData.value.find((row) => row === scope.row);
     if (editedRow) {
         // 更新表格数据，假设你已经在 `scope.row` 中修改了值
         Object.assign(editedRow, scope.row);
+        // 保持记录更新
+        originalRowData.value[rowId] = { ...scope.row };
         // 确保关闭当前行的编辑状态
         editedRow.rowEdit = false;
     }
-    // 恢复按钮到非编辑状态
-    curEdit.value = '';
-    emits('update:editRowFlag', '');
-    emits('update:isEditRow', false);
+    resetInput();
+}
+const commonCellEditCancel = (scope) => {
+    const rowId = scope.row.id;
+    const originalData = originalRowData.value[rowId];
+    if (originalData) {
+        Object.assign(scope.row, originalData); // 恢复数据到编辑之前的状态
+        delete originalRowData.value[rowId]; // 清除已恢复的原始数据快照
+    }
+    resetInput();
+}
+// 默认
+const ensureInput = (scope) => {
+    commonCellEditEnsure(scope);
     emits('ensureInput', scope);
 };
 
-const cancelInput = () => {
-    curEdit.value = '';
+const cancelInput = (scope) => {
+    commonCellEditCancel(scope);
     emits('cancelInput');
 };
-
+// 插槽类型
+const handleSlotEditCell = () => {
+    // 清空当前编辑的单元格标识
+    curEdit.value = '';
+};
 const isEditingCell = (col: string, idx: number) =>
     curEdit.value === `${col}--${idx}`;
-const handleEditCell = (scope) => {
-    // 确保更新数据
-    const editedRow = copyTableData.value.find((row) => row === scope.row);
-    if (editedRow) {
-        // 将编辑后的值应用到表格数据
-        Object.assign(editedRow, scope.row);
-        // 恢复非编辑状态
-        editedRow.rowEdit = false;
-    }
-    curEdit.value = ''; // 清空当前编辑的单元格标识
-};
+
 
 const rowClick = (row: any, col: any) => {
+    const rowId = row.id;
+
     if (col.label === actionOptions.value.label && props.isEditRow) {
+        // 如果该行没有被编辑过，则保存其原始数据
+        if (!originalRowData.value[rowId]) {
+            originalRowData.value[rowId] = { ...row }; // 存储当前行的原始数据快照
+        }
         row.rowEdit = !row.rowEdit;
+        // 这里的设计是为什么？
         if (row.rowEdit) {
             emits('update:editRowFlag', 'edit');
         } else {
             emits('update:editRowFlag', '');
         }
+        // 保证只有一行处于编辑状态
         copyTableData.value.forEach((item) => {
             if (item !== row) item.rowEdit = false;
         });
     }
 };
 const clickEdit = (col: string, idx: number, scope: any) => {
+    const rowId = scope.row.id;
+    // 如果该行没有被编辑过，则保存其原始数据
+    if (!originalRowData.value[rowId]) {
+        originalRowData.value[rowId] = { ...scope.row }; // 存储当前行的原始数据快照
+    }
     curEdit.value = `${col}--${idx}`;
     scope.row.rowEdit = false; // 确保不激活整行的编辑状态
+    emits('editingCell', scope);
 };
 </script>
 

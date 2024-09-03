@@ -1,7 +1,7 @@
 <template>
     <MiForm
-        ref="form"
         :options="formConfig"
+        ref="form2"
         label-width="100px"
         @handlePreview="handlePreview"
         @handleRemove="handleRemove"
@@ -32,14 +32,17 @@
 import { ref } from 'vue';
 import { formConfig } from '@/config/formConfig';
 
-const form = ref();
+const form2 = ref();
 const onSubmit = (scope) => {
+    console.log(' scope.form',  scope.form)
     scope.form.validate((valid) => {});
 };
 
 const resetForm = (scope) => {
+    console.log(' resetForm.form',  scope.form,33, form2, 22,form2.value )
+
     // 单独处理的上传组件、编辑器都没有被重置，因为富文本内容并没有被还原
-    form.value.selfResetFilds();
+    form2.value.selfResetFilds();
 };
 
 const handlePreview = (file: any) => {

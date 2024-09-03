@@ -49,15 +49,6 @@
                             <slot name="uploadTip"></slot>
                         </el-upload>
                     </div>
-                    <div v-else-if="item.type === 'editor'">
-                        <Editor
-                            :item="item"
-                            @editorChanged="
-                                (valueHtml) => editorChanged(item, valueHtml)
-                            "
-                            >{{ item.attrs }}</Editor
-                        >
-                    </div>
                     <component
                         v-else
                         v-bind="item.attrs"
@@ -78,25 +69,15 @@
 
 <script lang="ts" setup>
 import {
-    defineComponent,
     PropType,
     ref,
     onMounted,
     watch,
     defineEmits,
-    defineExpose,
-    nextTick,
+    defineExpose
 } from 'vue';
 import { FormOptions } from '@/types/form.ts';
 import cloneDeep from 'lodash/cloneDeep';
-import Editor from './editor.vue';
-
-defineComponent({
-    name: 'MiForm',
-    components: {
-        Editor,
-    },
-});
 
 const props = defineProps({
     options: {
@@ -144,7 +125,6 @@ const emits = defineEmits([
     'handleChange',
     'handeleBeforeUpload',
 ]);
-let editorCopyHtml;
 const handlePreview = (file: File) => {
     emits('handlePreview', file);
 };
@@ -179,18 +159,10 @@ const handeleBeforeUpload = (file: File, fileList: FileList) => {
     emits('handeleBeforeUpload', file, fileList);
 };
 
-const editorChanged = (item, valueHtml) => {
-    editorCopyHtml = valueHtml;
-    // 更新表单数据
-    model.value[item.prop!] = valueHtml.value;
-};
 
 // 改写的
 const selfResetFilds = () => {
     form.value?.resetFields();
-    nextTick(() => {
-        editorCopyHtml.value = '';
-    });
 };
 // 验证方法
 const validate = () => {
